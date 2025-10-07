@@ -1,16 +1,3 @@
-#!/usr/bin/env python
-__author__ = "Sreenivas Bhattiprolu"
-__license__ = "Feel free to copy, I appreciate if you acknowledge Python for Microscopists"
-
-# https://www.youtube.com/watch?v=R9PPxpzj5tI
-
-"""
-@author: Sreenivas Bhattiprolu
-
-Dataset from: https://lhncbc.nlm.nih.gov/publication/pub9932
-
-"""
-
 import numpy as np
 
 #Set the `numpy` pseudo-random generator at a fixed value
@@ -109,19 +96,6 @@ from keras.utils import to_categorical
 
 X_train, X_test, y_train, y_test = train_test_split(dataset, to_categorical(np.array(label)), test_size = 0.20, random_state = 0)
 
-# When training with Keras's Model.fit(), adding the tf.keras.callback.TensorBoard callback 
-# ensures that logs are created and stored. Additionally, enable histogram computation 
-#every epoch with histogram_freq=1 (this is off by default)
-#Place the logs in a timestamped subdirectory to allow easy selection of different training runs.
-
-#import datetime
-
-#log_dir="logs/fit/" + datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + "/"
-#tensorboard_callback = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
-
-
-# ### Training the model
-# As the training data is now ready, I will use it to train the model.   
 
 #Fit the model
 history = model.fit(np.array(X_train), 
@@ -199,5 +173,6 @@ model.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = [
 print(model.summary())
 
 """
+
 
 
